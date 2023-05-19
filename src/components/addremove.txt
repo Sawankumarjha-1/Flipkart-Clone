@@ -1,0 +1,196 @@
+import React, { useState, useEffect } from "react";
+
+import { ReactSession } from "react-client-session";
+import Loader from "../components/sub-components/Loader.jsx";
+import NoItemFound from "../components/sub-components/NoItemFound.jsx";
+import {
+  AiOutlinePlus,
+  AiOutlineMinus,
+  AiFillCloseCircle,
+} from "react-icons/ai";
+import { FaLocationArrow } from "react-icons/fa";
+import { CiLocationOn } from "react-icons/ci";
+import MoveLater from "./MoveLater";
+const AddToCart = () => {
+  const [popup, setpopup] = useState(false);
+  const [orderFormDisplay, setOrderFormDisplay] = useState(false);
+  const [actualData, setActualData] = useState([]);
+
+  useEffect(() => {
+    if (ReactSession.get("username") !== "") {
+      fetch(
+        `http://localhost:5000/skcart_getcartitem?email=${ReactSession.get(
+          "username"
+        )}`,
+        {
+          method: "GET",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+        }
+      )
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            setActualData(result);
+          },
+          (error) => {}
+        );
+    }
+  }, []);
+
+  if (ReactSession.get("username") === "") {
+    window.location = "/login";
+  }
+  return actualData.length !== 0 ? (
+    <div className="add-to-cart">
+      <div
+        className="popup-pincode"
+        style={{ display: popup ? "inline-block" : "none" }}
+      >
+        <AiFillCloseCircle
+          size={25}
+          className="popup-close"
+          onClick={() => {
+            setpopup(false);
+          }}
+        />
+        <div className="input-field">
+          <input type="text" placeholder="Enter Pincode" name="pincode" />
+          <button>Submit</button>
+        </div>
+        <p>
+          <CiLocationOn />
+          Use Current Location
+        </p>
+      </div>
+      <div className="add-to-cart-left">
+        <div
+          className="pincode"
+          style={{ display: orderFormDisplay === false ? "flex" : "none" }}
+        >
+          <small>From saved address</small>
+          <button
+            onClick={() => {
+              setpopup(true);
+            }}
+          >
+            Enter Pincode
+          </button>
+        </div>
+
+        <div
+          className="add-to-cart-items"
+          style={{ display: orderFormDisplay === false ? "block" : "none" }}
+        >
+          {actualData.cartitems == 0 ? (
+            <NoItemFound />
+          ) : (
+            actualData.cartitems.map((element, index) => {
+              return (
+                <div
+                  className="individual-cart-item"
+                  key={"individual-cart-item" + index}
+                >
+                  <div className="individual-cart-item-left">
+                    <img src={element.main_img} alt="item" />
+                  </div>
+                  <div className="individual-cart-item-middle">
+                    <h3>{element.name}</h3>
+                    <h2>{element.Price}</h2>
+                  </div>
+                  <div className="individual-cart-item-right">
+                    <small>Delivery by 2 day after order</small>
+                  </div>
+
+                  <div className="save-later">
+                    <div className="quantity">
+                      <AiOutlineMinus size={25} className="increment" />
+                      <input type="text" />
+                      <AiOutlinePlus size={25} className="increment" />
+                    </div>
+                    <button>Save Later</button>
+                    <button>Remove</button>
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </div>
+
+        <div
+          className="place-order"
+          style={{
+            display:
+              orderFormDisplay === false
+                ? actualData.cartitems.length !== 0
+                  ? "flex"
+                  : "none"
+                : "none",
+          }}
+        >
+          <button
+            onClick={() => {
+              setOrderFormDisplay(true);
+            }}
+          >
+            PLACE ORDER
+          </button>
+        </div>
+
+        <div
+          className="order-form-main-div"
+          style={{ display: orderFormDisplay ? "flex" : "none" }}
+        >
+          <form className="order-form">
+            <input type="text" value="Order Id" name="orderId" disabled />
+
+            <select>
+              <option value="Mode of Payment" selected>
+                Mode of Payment
+              </option>
+              <option value="cash on delivery" name="cash">
+                Cash on delivery
+              </option>
+            </select>
+            <input type="text" placeholder="City" name="city" />
+            <input type="text" placeholder="Pincode" name="pincode" />
+            <input type="text" placeholder="Flat no" name="flat" />
+            <input type="text" placeholder="Apartment name" name="apartment" />
+            <textarea
+              placeholder="Nearest Location.."
+              name="Nearest Location"
+            ></textarea>
+            <div className="order-form-btn-div">
+              <button>
+                <FaLocationArrow size={20} className="order-btn-icons" />
+                PLACE ORDER
+              </button>
+            </div>
+          </form>
+        </div>
+        <MoveLater />
+      </div>
+      <div className="add-to-cart-right">
+        <h3>
+          <b>PRICE DETAILS</b>
+        </h3>
+        <p>
+          Price (1 item) <b>₹84,999</b>
+        </p>
+        <p>
+          Delivery Charges <b>FREE</b>
+        </p>
+        <p>
+          Secured Packaging Fee <b>₹69</b>
+        </p>
+        <h3 className="price">
+          Total Amount <span>₹85,068</span>
+        </h3>
+      </div>
+    </div>
+  ) : (
+    <Loader />
+  );
+};
+
+export default AddToCart;

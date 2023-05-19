@@ -1,0 +1,206 @@
+// const p1 = new SeparateProductsModel({
+//   name: "IQOO Z6 Lite 5G (Without Charger) (Stellar Green, 128 GB) (6 GB RAM)",
+//   Rating: "4",
+//   Price: "₹15,890",
+//   Warranty: "1 Year",
+//   Color: "Stellar Green",
+//   Highlights: {
+//     feature_1: "6 GB RAM | 128 GB ROM",
+//     feature_2: "16.71 cm (6.58 inch) Full HD+ Display",
+//     feature_3: "50MP Rear Camera",
+//     feature_4: "5000 mAh Battery",
+//   },
+//   Category: "Smartphones",
+//   Sub_categroy: "IQOO",
+//   Images: "iqooz6lite.jpg",
+// });
+// p1.save();
+
+// let offer1 = new OfferModel({
+//   title: "7% off On Sports Equipment",
+//   link: "/",
+// });
+// offer1.save();
+// let caro = new CarouselModel({
+//   item_name: "Apple 13",
+//   image: "apple13.jpg",
+//   about:
+//     "15 cm (6.1-inch) Super Retina XDR display | | Cinematic mode adds shallow depth of field and shifts focus automatically in your videos | Advanced dual-camera system with 12MP Wide and Ultra Wide cameras; Photographic Styles, Smart HDR 4, Night mode, 4K Dolby Vision HDR recording | 12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording | A15 Bionic chip for lightning-fast performance",
+//   link: "/",
+// });
+// caro.save();
+// let categ1 = new CategoryModel({
+//   Category: "Sports",
+// image: "sports.png",
+//   Sub_category: [{ name: "Cricket", slug_name: "skcart_sports_cricket" }],
+//   Sub_category: [{ name: "Badminton", slug_name: "skcart_sports_badminton" }],
+//   Sub_category: [{ name: "football", slug_name: "skcart_sports_football" }],
+//   Sub_category: [{ name: "Cycling", slug_name: "skcart_sports_cycling" }],
+//   Sub_category: [{ name: "GYM", slug_name: "skcart_sports_gym" }],
+// });
+
+// categ1.save();
+// let product1 = new ProductModel({
+//   category_name: "Smartphones",
+//   slug_name: "skcart_smartphones",
+//   sub_categroy: [
+//     {
+//       sub_category_name: "Samsung",
+//       items: [
+//         {
+//           name: "SAMSUNG Galaxy M12 (Blue, 64 GB)  (4 GB RAM)",
+//           Rating: "4.2",
+//           Price: "₹12,490",
+//           Warranty: "No",
+//           Color: "Blue",
+//           Highlights: {
+//             feature_1: "4 GB RAM | 64 GB ROM",
+//             feature_2: "16.51 cm (6.5 inch) Display",
+//             feature_3: "48MP Rear Camera",
+//             feature_4: "6000 mAh Battery",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "Samsung",
+//           Images: "Samsung1.jpg",
+//         },
+//       ],
+//     },
+//     {
+//       sub_category_name: "Oppo",
+//       items: [
+//         {
+//           name: "OPPO Reno8 5G (Shimmer Gold, 128 GB)  (8 GB RAM)",
+//           Rating: "4.3",
+//           Price: "₹29,999",
+//           Warranty:
+//             "1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories",
+//           Color: "Shimmer Gold",
+//           Highlights: {
+//             feature_1: "8 GB RAM | 128 GB ROM",
+//             feature_2: "16.33 cm (6.43 inch) Full HD Display",
+//             feature_3: "50MP + 8MP + 2MP | 32MP Front Camera",
+//             feature_4: "4500 mAh Lithium-ion Polymer Battery",
+//             feature_5: "Mediatek Dimensity 1300 Processor",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "Oppo",
+//           Images: "Reno8.jpg",
+//         },
+//       ],
+//     },
+//     {
+//       sub_category_name: "Realme",
+//       items: [
+//         {
+//           name: "Realme 10 Pro+ 5G (Hyperspace, 128 GB)  (6 GB RAM)",
+//           Rating: "4.5",
+//           Price: "₹24,999",
+//           Warranty:
+//             "1 Year Warranty for Phone and 6 Months Warranty for In-Box Accessories",
+//           Color: "Shimmer Gold",
+//           Highlights: {
+//             feature_1: "6 GB RAM | 128 GB ROM",
+//             feature_2: "17.02 cm (6.7 inch) Full HD+ Display",
+//             feature_3: "108MP + 8MP + 2MP | 16MP Front Camera",
+//             feature_4: "5000 mAh Battery",
+//             feature_5: "Mediatek Dimensity 1080 5G Processor",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "Realme",
+//           Images: "Realme10pro.jpg",
+//         },
+//       ],
+//     },
+
+//     {
+//       sub_category_name: "Motorola",
+//       items: [
+//         {
+//           name: "MOTOROLA Edge 30 (Meteor Grey, 128 GB)  (8 GB RAM)",
+//           Rating: "4.1",
+//           Price: "₹24,999",
+//           Warranty: "No",
+//           Color: "Meteor Grey",
+//           Highlights: {
+//             feature_1: "8 GB RAM | 128 GB ROM",
+//             feature_2: "16.64 cm (6.55 inch) Full HD+ Display",
+//             feature_3: "50MP + 50MP + 2MP | 32MP Front Camera",
+//             feature_4: "4020 mAh Lithium Battery",
+//             feature_5: "Qualcomm Snapdragon 778G Plus Processor",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "Motorola",
+//           Images: "motorolaedge30.png",
+//         },
+//       ],
+//     },
+//     {
+//       sub_category_name: "Apple",
+//       items: [
+//         {
+//           name: "APPLE iPhone 13 (Midnight, 128 GB)",
+//           Rating: "4.7",
+//           Price: "₹61,999",
+//           Warranty: "Brand Warranty for 1 Year",
+//           Color: "Midnight",
+//           Highlights: {
+//             feature_1: "128 GB ROM",
+//             feature_2: "15.49 cm (6.1 inch) Super Retina XDR Display",
+//             feature_3: "12MP + 12MP | 12MP Front Camera",
+//             feature_4: "A15 Bionic Chip Processor",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "Apple",
+//           Images: "apple13.jpg",
+//         },
+//       ],
+//     },
+//     {
+//       sub_category_name: "Vivo",
+//       items: [
+//         {
+//           name: "vivo T1 5G (Rainbow Fantasy, 128 GB)  (6 GB RAM)",
+//           Rating: "4.4",
+//           Price: "₹16,990",
+//           Warranty: "1 Year Handset and 6 Months Accessories",
+//           Color: "Midnight",
+//           Highlights: {
+//             feature_1: "6 GB RAM | 128 GB ROM | Expandable Upto 1 TB",
+//             feature_2: "16.71 cm (6.58 inch) Full HD+ Display",
+//             feature_3: "50MP + 2MP + 2MP | 16MP Front Camera",
+//             feature_4: "5000 mAh Lithium Battery",
+//             feature_5: "Qualcomm Snapdragon 695 Processor",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "Vivo",
+//           Images: "vivot10.jpg",
+//         },
+//       ],
+//     },
+//     {
+//       sub_category_name: "IQOO",
+//       items: [
+//         {
+//           name: "IQOO Z6 Lite 5G (Without Charger) (Stellar Green, 128 GB)  (6 GB RAM)",
+//           Rating: "4",
+//           Price: "₹15,890",
+//           Warranty: "1 Year",
+//           Color: "Stellar Green",
+//           Highlights: {
+//             feature_1: "6 GB RAM | 128 GB ROM",
+//             feature_2: "16.71 cm (6.58 inch) Full HD+ Display",
+//             feature_3: "50MP Rear Camera",
+//             feature_4: "5000 mAh Battery",
+//           },
+//           Category: "Smartphones",
+//           Sub_categroy: "IQOO",
+//           Images: "iqooz6lite.jpg",
+//         },
+//       ],
+//     },
+//   ],
+// });
+// product1.save();
+// sub_cat1.save();
+// feat.save();
+// items.save();
